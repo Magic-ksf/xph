@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻详情</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/news.css">
+</head>
+<style type="text/css">
+body{
+	margin: 0;
+    padding: 0;
+    background: #f0f7ff;
+    font-size: 16px;
+    min-width: 1200px;
+}
+
+
+</style>
+<body>
+<div id="news">
+	<div class="head">
+		<div class="head_div">
+			<h1>
+				<a href="/">西普会</a>
+			</h1>
+			<ul class="head_ul">
+				<li v-for="item in menu"><a v-bind:href="item.url">[[ item.name ]]</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="app_page">
+		<div class="imgBanner"><img src="/themes/sinohealth/assets/images/pic_1.png" alt=""></div>
+		<div class="newsDetailTitle">
+			<p class="nn_div">[[ name ]]</p>
+			<div class="vv_div">[[ nameEnglish ]]</div>
+		</div>
+		<div class="newsDetail">
+			<p class="newsDetail_title">[[ msg.title ]]</p>
+			<p class="newsDetail_time">[[ msg.created_at ]]</p>
+			<div class="newsDetail_div" v-html="msg.content_html">
+				
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el:'#news',
+		delimiters: ['[[', ']]'],
+		data:{
+			msg:'',
+			menu:'',
+			name:'',
+			nameEnglish:''
+		},
+		created:function(){
+
+			var parse = (window.location.search).split('?')[1].split('&');
+			var id='';
+			var categoryId = '';
+			var _this = this;
+			for(var i=0;i<parse.length;i++){
+				if(parse[i].split('=')[0] == 'id' ){
+					id = parse[i].split('=')[1]
+				}
+				if(parse[i].split('=')[0] == 'category_id' ){
+					categoryId = parse[i].split('=')[1]
+				}
+			}
+			
+			$.post('/api/v1/index/getMenu',function(data){
+				_this.menu = data
+				
+			})
+			$.post('/api/v1/news/getNews',{id:id,category_id:categoryId},function(data){
+				_this.msg = data;
+				_this.newsList = data.list;
+				_this.nameEnglish = data.name_en;
+				_this.name = data.name;
+			})
+		}
+
+	})
+</script>
+</html>

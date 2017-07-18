@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>帮助与咨询</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/news.css">
+</head>
+<style type="text/css">
+body{
+	margin: 0;
+    padding: 0;
+    background: #f0f7ff;
+    font-size: 16px;
+    min-width: 1200px;
+}
+
+
+</style>
+<body>
+<div id="news">
+	<div class="head">
+		<div class="head_div">
+			<h1>
+				<a href="/">西普会</a>
+			</h1>
+			<ul class="head_ul">
+				<li v-for="item in menu"><a v-bind:href="item.url">[[ item.name ]]</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="app_page">
+		<div class="imgBanner"><img src="/themes/sinohealth/assets/images/pic_1.png" alt=""></div>
+		<ul class="ulRouter">
+			<li v-for="(item,index) in arrLi" v-bind:class="{'activeLi':arrIndex==index }" @click="chooseTitle(index,item.id)">
+				<i v-bind:class="item.class"></i>
+				<span>[[ item.title ]]</span>
+			</li>
+		</ul>
+		<div class="helpDetail">
+			<p class="helpDetail_title">[[ msg.title ]]</p>
+			<div class="helpDetail_div" v-html="msg.content_html">
+				
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/vue.js"></script>
+<script type="text/javascript" src="scripts/help.js"></script>
+</html>

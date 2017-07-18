@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>西普十年</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/index.css">
+
+</head>
+<body>
+	<div id="app">
+  		<div class="head">
+  			<div class="head_div">
+  				<h1>
+  					<a href="/">西普会</a>
+  				</h1>
+  				<ul class="head_ul">
+  					<li v-for="item in menu"><a v-bind:href="item.url">[[ item.name ]]</a></li>
+  				</ul>
+  			</div>
+  		</div>
+
+  		<div class="index_banner">
+			<img src="/themes/sinohealth/assets/images/banner_index.png">
+  		</div>
+  		<div class="index_news" v-if="news.show">
+			<div class="news-body">
+				<div class="bodyLeft">
+					<img class="titleImg" src="/themes/sinohealth/assets/images/news-title.png">
+					<div class="news-swiper swiper-container">
+						<div class="swiper-wrapper">
+					     <div class="swiper-slide" v-for="item in news.list.rotate">
+                  <a v-bind:href="urlTo(item.id,news.category_id)">
+                    <img v-bind:src="item.image" class="newsImg">
+                    <div class="newsSlideTitle">[[ item.title  ]]</div>
+                  </a>
+                </div>
+					  </div>
+					  <div class="swiper-button-prev"></div>
+    				<div class="swiper-button-next"></div>
+					</div>
+				</div>
+				<div class="bodyRight">
+					<ul class="bodyTitle">
+						<li v-for="item in news.list.top">
+							<a :href="urlTo(item.id,news.category_id)"><h2>[[ item.title ]]</h2></a>
+							<p style="margin-top: 10px;line-height: 24px;" class="summay">[[ item.description | splitSring ]]<a class="detail" :href="urlTo(item.id,news.category_id)" style="bottom: -3px;right: 6px;">[详情]</a></p>
+						</li>
+					</ul>
+					<div class="newsUpdate">
+						<div class="newsUpdate_title">
+							<div
+							 class="newActive">最新动态</div
+							 >
+							<span>RECENT NEWS</span>
+							<a v-bind:href="urlMore(news.category_id)">MORE+</a>
+						</div>
+						<ul class="newUlDiv">
+							<a :href="urlTo(item.id,news.category_id)" v-for="item in news.list.new" style="color: #333;">
+								<li>
+									<i></i>
+									<div class="newUlDiv_title">
+									<div class="newDiv_title_insert">[[ item.title ]]</div></div>
+								</li>
+							</a>
+						</ul>
+					</div>
+				</div>
+			</div>
+  		</div>
+
+  		<!-- 特别策划 -->
+  		<div class="planning" v-if="plan.show">
+  			<div class="planning-main">
+  				<div class="planningLeft">
+  					<img class="planningImg" src="/themes/sinohealth/assets/images/planning_title.png">
+  					<div class="planMian">
+  						<div class="planMian_left">
+  							<div class="planMian_left_img">
+  								<img v-bind:src="plan.list.rotate[0].image">
+  							</div>
+  							<div class="planMian_left_ul">
+  								<ul>
+  									<a v-for = "item in plan.list.new " :href="urlTo(item.id,plan.category_id)">
+  									<li >
+  										<i></i>
+  										<div class="newUlDiv_title"><div class="newDiv_title_insert" style="border-bottom: none;">[[ item.title ]]</div></div>
+  									</li>
+  									</a>
+  								</ul>
+  								<a class="more" style="bottom: 15px;" v-bind:href="urlMore(plan.category_id)">MORE+</a>
+  							</div>
+  						</div>
+  						<div class="planMian_right">
+  							<ul class="bodyTitle">
+  								<li v-for="item in plan.list.top">
+									<a :href="urlTo(item.id,plan.category_id)"><h2>[[ item.title ]]</h2></a>
+									<p style="margin-top: 10px;line-height: 24px" class="summay">[[ item.description | splitSring2 ]]<a class="detail" :href="urlTo(item.id,plan.category_id)">详情</a></p>
+								</li>
+  							</ul>
+  						</div>
+  					</div>
+  				</div>
+  				<div class="planningRight">
+  					<img v-bind:src="plan.org[0]">
+  				</div>
+  				<div style="clear: both;"></div>
+  			</div>
+  		</div>
+
+  		<!-- 精彩演讲 -->
+  		<div class="speech" v-if="speech.show">
+  			<h2 class="speech_title_h2">精彩演讲</h2>
+  			<h3 class="speech_title_h3">WONDERFUL SPEECH</h3>
+  			<div class="speech_person">
+  				<div class="speech_swiper" >
+					<div class="speech_main" v-bind:style="speechStyle" style="transition: all .3s linear;">
+				        <div class="speech-slide" v-for="item in speech.list">
+				        	<ul>
+  				        		<li v-for="list in item">
+                        <a v-bind:href="urlTo(list.id,speech.category_id)">
+    				        			<div class="speech_img">
+    				        				<img v-bind:src="list.image">
+    				        			</div>
+    				        			<div class="speech_abstracte">
+    				        				<h3>[[ list.title ]]</h3>
+    				        				<p>[[ list.duty ]]</p>
+    				        				<p>[[ list.company ]]</p>
+    				        			</div>
+                        </a>
+  				        		</li>
+				        	</ul>
+				        </div>
+				        
+				    </div>
+				</div>
+				<div class="speech_left" @click="speechLeft"></div>
+				<div class="speech_right" @click="speechRight"></div>
+  			</div>
+  		</div>
+
+  		<!-- 精彩瞬间 -->
+  		<div class="splendid_time" v-if="splendid.show">
+  			<h2 class="speech_title_h2">精彩瞬间</h2>
+  			<h3 class="speech_title_h3">SPLENDID MOMENT</h3>
+  			<div class="splendid_main">
+  				<div class="splendid_swiper">
+  					<ul style="transition: all .3s linear;" v-bind:style="splendidStyle">
+  						<li v-for="item in splendid.list">
+  							<div class="splendid_img_left">
+  								<div style="width: 616px;height:408px;position: relative;overflow: hidden;">
+  									<img @click="showImg(item[0].image)"  class="imgStyle" v-bind:src="item[0].image">
+  								</div>
+  								
+  								<div style="margin-top: 6px;width: 616px;height:202px; ">
+  									<div style="float: left;margin-right: 6px;width: 304px;height: 202px;position: relative;overflow: hidden;">
+  										<template v-if="item[1]">
+  											<img @click="showImg(item[1].image)"  class="imgStyle" v-bind:src="item[1].image">
+  										</template>
+  										
+  									</div>
+  									<div style="float: left;width: 304px;height: 202px;position: relative;overflow:hidden; ">
+  										<template v-if="item[2]">
+  											<img @click="showImg(item[2].image)"  class="imgStyle" v-bind:src="item[2].image">
+  										</template>
+  									</div>
+  								</div>
+  							</div>
+  							<div class="splendid_img_right">
+  								<div style="position: relative;width: 458px;height:305px;overflow: hidden; ">
+
+  									<template v-if="item[3]">
+  										<img @click="showImg(item[3].image)"  class="imgStyle" v-bind:src="item[3].image">
+  									</template>
+  								</div>
+  								<div style="position: relative;width: 458px;height:305px;margin-top: 6px;overflow: hidden;">
+  									<template v-if="item[4]">
+  										<img @click="showImg(item[4].image)"  class="imgStyle" v-bind:src="item[4].image">
+  									</template>
+  								</div>
+  							</div>
+  						</li>
+  					</ul>
+  				</div>
+  				<div class="speech_left" @click="splendidLeft" style="left: -90px;"></div>
+				<div class="speech_right" @click="splendidRight" style="right: -90px;"></div>
+  			</div>
+  		</div>	
+  		<!-- 榜单 -->
+  		<div class="brand" v-if="boards.show">
+  			<div class="brandMain">
+  				<div class="brandList">
+  					<h2 class="speech_title_h2" style="color: #fff;margin-top: 0;">品牌榜</h2>
+  					<h3 class="speech_title_h3" style="color: #fff;font-weight: 400;margin-top: -5px;">BRAND LIST AREA</h3>
+  					<div class="brand_content">
+  						<div class="brand_content_img">
+  							<img v-bind:src="boards.brand.image[0]">
+  						</div>
+  						<p class="brand_abstract">
+  							[[ boards.brand.description ]]
+  						</p>
+  					</div>
+  					<div class="brand_bottom">
+  						<div class="brand_left">
+  							<p>新闻中心</p>
+  							<i></i>
+  							<a v-bind:href="urlMore(boards.brand.category_id)" class="more">MORE+</a>
+  						</div>
+  						<ul class="brand_bottom_main">
+  							<a :href="urlTo(item.id,boards.brand.category_id)" v-for="item in boards.brand.list.top">
+  							<li><div class="brand_arrow">></div><div class="brand_div">[[item.title  ]]</div></li></a>
+  						</ul>
+  					</div>
+  				</div>
+  				<div class="brandList">
+  					<h2 class="speech_title_h2" style="color: #fff;margin-top: 0;">百强榜</h2>
+  					<h3 class="speech_title_h3" style="color: #fff;font-weight: 400;margin-top: -5px;">THE TOP100 LIST AREA</h3>
+  					<div class="brand_content">
+  						<div class="brand_content_img">
+  							<img v-bind:src="boards.top100.image[0]">
+  						</div>
+  						<p class="brand_abstract">
+  							[[ boards.top100.description ]]
+  						</p>
+  					</div>
+  					<div class="brand_bottom">
+  						<div class="brand_left">
+  							<p>新闻中心</p>
+  							<i></i>
+  							<a v-bind:href="urlMore(boards.top100.category_id)" class="more">MORE+</a>
+  						</div>
+  						<ul class="brand_bottom_main">
+  							<a :href="urlTo(item.id,boards.top100.category_id)" v-for="item in boards.top100.list.top">
+  							<li ><div class="brand_arrow">></div><div class="brand_div">[[item.title ]]</div></li></a>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+
+  		<!-- 嘉宾阵容 -->
+  		<div class="guest_team" v-if="guest.show">
+  			<div class="guest_main">
+  				<img src="/themes/sinohealth/assets/images/guest_team.png" class="guest_team_img">
+  				<div class="guest_swiper">
+					<div class="guest_main_swiper" v-bind:style="guestStyle" style="transition: all .3s linear;" v-bind:style="guestStyle">
+			       		 <div class="guest-slide" v-for="item in guest.list">
+			        		<ul>
+				        		<li v-for = " list in item  ">
+				        			<div class="guest_img">
+				        				<img class="guest_img_insert" v-bind:src="list.image">
+				        			</div>
+				        			<div class="sguest_abstracte">
+				        				<h3>[[ list.title ]]</h3>
+				        				<p>[[ list.duty ]]</p>
+				        				<p>[[ list.company ]]</p>
+				        			</div>
+				        		</li>
+			        		
+			        		</ul>
+			        	</div>
+			    	</div>
+			    	
+				</div>
+				<div class="speech_left" @click="guestLeft" style="left: -80px;"></div>
+				<div class="speech_right" @click="guestRight" style="right: -80px;"></div>
+  			</div>
+  				    
+  		</div>
+
+  		<!-- 特别鸣谢 -->
+  		<div class="special_tk" v-if="thanksImg.show">
+  			<div class="speech_main" style="margin: 77px auto 0;">
+  				<img  class="speech_title_img" src="/themes/sinohealth/assets/images/special_title.png">
+  				<div class="special_img">
+  					<img v-bind:src="thanksImg.list[0][0].image">
+  				</div>
+  			</div>
+  		</div>
+
+  		<!-- 历届西普 -->
+  		<div class="all_cepo" v-if="previous.show">
+  			<div class="allCepo_main">
+  				<img class="speech_title_img" src="/themes/sinohealth/assets/images/all_cepo.png">
+  				<div class="allCepo_main_swiper">
+  					<div class="allCepo_container">
+  						<ul v-bind:style="allCepoStyle" style="transition: all .3s linear">
+  							<li class="allCepo_silder" v-for="item in previous.list">
+  								
+  								<ul>
+  									<li class="allCepo_silder_insert" v-for="list in item">
+  										<a :href="urlTo(list.id,previous.category_id,list.url)">
+  										<img v-bind:src="list.image">
+  										<div class="allCepo_bg"></div>
+  										<div class="allCepo_years">[[ list.title ]]</div>
+  										</a>
+  									</li>
+  								</ul>
+  								
+  							</li>
+  						</ul>
+  					</div>
+  					<div class="allCepo_left" @click="allCepoLeft"></div>
+  					<div class="allCepo_right" @click="allCepoRight"></div>
+  				</div>
+  			</div>
+  		</div>
+  		<div v-if="bgImg" @click="hideBg" class="maskBg"></div>
+  		<img v-if="bgImg" class="fixImg" v-bind:src="imgHref">
+  </div>
+  
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/swiper.min.js"></script>
+<script type="text/javascript" src="scripts/vue.js"></script>
+<script src="scripts/index.js"></script>
+</html>

@@ -1,0 +1,838 @@
+@import 'common_head.css';
+@import 'swiper.min.css';
+#app{
+	position: relative;
+}
+.index_banner{
+	width: 100%;
+	height: 766px;
+	position: relative;
+	margin-top: 96px;
+	overflow: hidden;
+}
+.index_banner img{
+	width: 1920px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -960px;
+}
+.index_news{
+	width: 100%;
+	height: 738px;
+	overflow: hidden;
+	background-image: url(/themes/sinohealth/assets/images/newsbg.png);
+	background-repeat: no-repeat;
+}
+.index_news .news-body{
+	width:1100px;
+	margin:75px auto 0;
+	height: 583px;
+}
+.news-body .bodyLeft,.news-body .bodyRight{
+	float: left;
+	height: 100%;
+}
+.news-body .bodyLeft{
+	width: 620px;
+	margin-right:14px;
+}
+.news-body .bodyLeft .titleImg{
+	display: block;
+	margin-top: 36px;
+
+}
+.news-body .swiper-button-prev,.news-body .swiper-button-next{
+	width: 63px;
+	height: 92px;
+	background-color: rgba(0,0,0,.5);
+	transform: translateY(-50%);
+	margin-top: 0;
+}
+.news-body .swiper-button-prev{
+	left: 0;
+	background-image: url(/themes/sinohealth/assets/images/allCeop_left.png);
+}
+.news-body .swiper-button-next{
+	right: 0;
+	background-image: url(/themes/sinohealth/assets/images/allCeop_right.png);
+}
+.bodyLeft .news-swiper{
+	margin-top: 60px;
+	height: 389px;
+	width: 100%;
+	position: relative;
+}
+.news-body .newsImg{
+	width: 100%;
+	height: 100%;
+}
+.newsSlideTitle{
+	position: absolute;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #fff;
+	box-sizing: border-box;
+	padding-left: 20px;
+	background-color: rgba(0,0,0,.5);
+	left: 0;
+	width: 100%;
+	bottom:0;
+}
+.news-body .bodyRight{
+	width: 465px;
+	height: 583px;
+	border:1px solid #e6e6e6;
+	box-sizing: border-box;
+	padding:30px 24px 0;
+	background-color: #fff;
+}
+.bodyTitle h2{
+	color: #2b83e1;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+.bodyTitle li{
+	margin-bottom: 34px;
+}
+.bodyTitle .summay{
+	 /*   overflow: hidden;*/
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+	font-size: 16px;
+	height: 69px;
+	color:#5c5c5c;
+	letter-spacing: 1px;
+	position: relative;
+}
+.detail{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: rgba(71,186,255,1) !important;
+	font-size: 16px;
+}
+.newsUpdate{
+
+}
+.newsUpdate_title{
+	box-sizing: border-box;
+	padding-left: 14px;
+	height: 35px;
+	line-height: 30px;
+	position: relative;
+	overflow: hidden;
+	
+}
+.newsUpdate_title h2{
+	float: left;
+	font-size: 20px;
+	color: #5c5c5c;
+	border-bottom: 3px solid #208af5;
+	margin-right: 4px;
+	padding-bottom: 1px;
+}
+.newsUpdate_title .newActive{
+	float: left;
+	font-size: 20px;
+	color: #5c5c5c;
+	border-bottom: 3px solid #2eb4f1;
+	margin-right: 10px;
+	padding-bottom: 1px;
+	font-weight: 400;
+}
+.newsUpdate_title span{
+	color:#5c5c5c;
+	font-size: 12px;
+	margin-top: 3px;
+	display: inline-block;
+}
+.newsUpdate_title a{
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+}
+.newsUpdate_title a,.more{
+	position: absolute;
+	display: inline-block;
+	
+	width: 64px;
+	
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 14px;
+	color: #fff !important;
+	background-color: #47baff;
+	border-radius: 4px;
+}
+
+.newUlDiv li{
+	position: relative;
+	height: 44px;
+	line-height: 44px;
+	box-sizing: border-box;
+	
+}
+.newUlDiv li i,.planMian_left_ul li i{
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 6px;
+	height: 6px;
+	border-radius: 2px;
+	background-color:#47baff;
+}
+.newUlDiv_title{
+	box-sizing: border-box;
+	padding-left: 15px;
+	
+}
+.newDiv_title_insert{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px;
+	color: #5c5c5c !important;
+	border-bottom: 1px dashed #e6e6e6;
+}
+.newUlDiv a:last-child li .newDiv_title_insert,.planMian_left_ul a:last-child li .newDiv_title_insert{
+	border-bottom: none;
+}
+
+
+/*十年特别计划*/
+.planning{
+	width: 100%;
+	height: 938px;
+	overflow: hidden;
+	background-image: url(/themes/sinohealth/assets/images/planing_bg.png);
+	background-repeat: no-repeat;
+}
+
+.planning .planning-main{
+	width: 1100px;
+	height: 694px;
+	margin:130px auto 0;
+}
+.planningLeft{
+	width: 762px;
+	margin-right: 22px;
+}
+.planningLeft,.planningRight,.planMian_left,.planMian_right{
+	float: left;
+}
+.planningLeft .planningImg{
+	margin-top: 30px;
+	display: block;
+}
+.planMian{
+	margin-top: 55px;
+	height: 511px;
+	background-color: #f1f7fe;
+	box-sizing: border-box;
+	padding:21px 18px 17px 13px;
+}
+.planMian_left{
+	width:346px;
+	margin-right: 14px;
+	position: relative;
+
+}
+.planMian_left_img{
+	width: 346px;
+	position: relative;
+	height: 250px;
+	overflow: hidden;
+}
+.planMian_left_img img{
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	max-height: 100%;
+	transform: translate3d(-50%,-50%,0);
+}
+.planMian_left_ul{
+	background-color: #fff;
+	width: 346px;
+	height: 208px;
+	position: relative;
+	overflow: hidden;
+	margin-top: 12px;
+}
+.planMian_left_ul ul{
+	margin-top: 10px;
+}
+.planMian_left_ul ul li{
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+	padding-left: 9px;
+	box-sizing: border-box;
+}
+.planMian_left_ul .more{
+
+	bottom: 17px;
+	left: 24px;
+
+}
+.bodyTitle h2{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	letter-spacing: 1px;
+}
+.planMian_left_ul ul a:link{
+	color: #5c5c5c !important;
+}
+.planMian_right ul{
+	
+}
+.planMian_right li{
+	background-color: #fff;
+	width: 371px;
+	height: 148px;
+	margin-bottom: 14px;
+	/*overflow: hidden;*/
+	box-sizing: border-box;
+	padding: 15px 15px;
+}
+.planMian_right li:last-child{
+	margin-bottom: 0;
+}
+.planMian_right .detail{
+	display: block;
+	width: 55px;
+	height: 20px;
+	background-color:#47baff;
+	color: #fff !important;
+	border-radius: 2px;
+	text-align: center;
+	line-height: 20px;
+	bottom: -4px;
+}
+
+.planningRight{
+	width: 316px;
+	height: 694px;
+}
+
+/*精彩演讲*/
+.speech{
+	width: 100%;
+	height: 1110px;
+	background-image: url(/themes/sinohealth/assets/images/speech_bg.png);
+	overflow:hidden;
+	background-repeat: no-repeat;
+}
+.speech_title_h2{
+	text-align: center;
+	margin-top: 42px;
+	color: #2c80e2;
+	font-weight: bold;
+	font-size: 62px;
+}
+.speech_title_h3{
+	font-size: 16px;
+	font-weight: medium;
+	text-align: center;
+	margin-top: 13px;
+	color: #2c80e2;
+}
+.speech_person{
+	width: 1187px;
+	height: 810px;
+	margin: 51px auto 0;
+	background-color: #e3effb;
+	position: relative;
+	overflow: hidden;
+}
+.speech_swiper{
+	width: 1000px;
+	height: 768px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+.speech_swiper li{
+	width: 235px;
+	height: 349px;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+	margin-bottom: 23px;
+
+}
+.speech_swiper li:nth-child(4n+4){
+	margin-right: 0;
+}
+.speech_img{
+	width: 216px;
+	margin:0 auto;
+	position: relative;
+	height: 233px;
+	overflow: hidden;
+}
+.speech_img img{
+	display: block;
+	position: absolute;
+	left: 50%;
+	max-height: 100%;
+	top: 50%;
+	transform: translate3d(-50%,-50%,0);
+}
+.speech_abstracte{
+	background-color: #1388f2;
+	width: 235px;
+	height: 116px;
+	box-sizing: border-box;
+	text-align: center;
+	overflow: hidden;
+}
+.speech_abstracte h3{
+	font-size: 24px;
+	color: #fff;
+	font-weight: medium;
+	margin-top: 15px;
+}
+.speech_abstracte p{
+	font-size: 16px;
+	color: #fff;
+	margin-top: 5px;
+	line-height: 18px;
+}
+.speech_main{
+	overflow: hidden;
+	height: 100%;
+}
+.speech-slide{
+	height: 100%;
+	width: 1000px;
+	float: left;
+}
+.speech_left,.speech_right{
+	width: 54px;
+	height: 104px;
+
+	position: absolute;
+	top: 50%;
+	transform:translateY(-50%);
+	cursor: pointer;
+}
+
+.speech_left{
+	background-image: url(/themes/sinohealth/assets/images/left.png);
+	background-repeat: no-repeat;
+	left: 16px;
+}
+.speech_right{
+	background-image: url(/themes/sinohealth/assets/images/right.png);
+	background-repeat: no-repeat;
+	right: 16px;
+}
+
+/*精彩瞬间*/
+.splendid_time{
+	width: 100%;
+	height: 937px;
+	background-image: url(/themes/sinohealth/assets/images/splendid_bg.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.splendid_main{
+	background-color: #fff;
+	width: 1100px;
+	height: 646px;
+	position: relative;
+	margin:40px auto 0;
+	box-sizing: border-box;
+	padding: 15px 11px;
+}
+.splendid_swiper{
+	overflow: hidden;
+	height: 100%;
+	width: 1078px;
+}
+.splendid_swiper .splendid_img_left{
+	position: relative;
+	float: left;
+	width: 614px;
+	height: 616px;
+	overflow: hidden;
+	margin-right: 6px;
+
+}
+.splendid_swiper .imgStyle{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	display: block;
+	transform:translate3d(-50%,-50%,0);
+}
+.splendid_swiper .splendid_img_right{
+	position: relative;
+	float: left;
+	width: 458px;
+	height: 616px;
+	overflow: hidden;
+}
+.splendid_main ul{
+	height: 616px;
+}
+.splendid_main ul li{
+	float: left;
+	width: 1078px;
+	height: 616px;
+	position: relative;
+}
+
+/*榜单*/
+.brand{
+	width: 100%;
+	height: 908px;
+	background-image: url(/themes/sinohealth/assets/images/brand_bg.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.brandMain{
+	width: 1100px;
+	margin:50px auto 0;
+}
+.brandMain .brandList{
+	float: left;
+	width: 532px;
+	margin-right: 36px;
+}
+.brandMain .brandList:last-child{
+	margin-right: 0;
+}
+.brand_content{
+	height: 530px;
+	width: 532px;
+	background-color: #0c66d4;
+	box-sizing: border-box;
+	padding:0 34px;
+	margin-top: 31px;
+}
+.brand_content_img{
+	position: relative;
+	width: 464px;
+	height: 230px;
+}
+.brand_content_img img{
+	position: absolute;
+	display: block;
+	width: 358px;
+	height: 149px;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%,-50%,0);
+}
+.brand_abstract{
+	padding: 20px;
+	box-sizing: border-box;
+	text-indent: 2em;
+	width: 464px;
+	height: 256px;
+	background-color: #fff;
+	overflow: hidden;
+	font-size: 16px;
+	letter-spacing: 1px;
+	line-height: 24px;
+	color: #5c5c5c;
+}
+.brand_bottom{
+	width: 532px;
+	height: 122px;
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,.2);
+	position: relative;
+	overflow: hidden;
+}
+.brand_left{
+	position: absolute;
+	top: 50%;
+	height: 50px;
+	transform: translateY(-50%);
+	left: 38px;
+}
+.brand_left p{
+	font-size: 18px;
+	color: #fff;
+	height: 25px;
+	line-height: 25px;
+	font-weight: 400;
+	position: relative;
+	margin-left: 10px;
+	margin-top: -3px;
+	letter-spacing: 1px;
+}
+.brand_left i{
+	position: absolute;
+	width: 5px;
+	height: 25px;
+	background-color: #85e4fe;
+	top: -4px;
+	left: 0;
+}
+.brand_left a{
+	left: 12px;
+	top: 30px;
+}
+.brand_bottom_main{
+	box-sizing: border-box;
+	height: 122px;
+	width: 455px;
+	margin:32px auto 0;
+	padding-left: 141px;
+
+
+}
+.brand_bottom_main li{
+	position: relative;
+	box-sizing: border-box;
+	color: #fff;
+	font-size: 16px;
+	margin-bottom: 16px;
+}
+.brand_bottom_main li:last-child{
+	margin-bottom: 0;
+}
+.brand_bottom_main li:last-child .brand_div{
+	margin-top: 10px;
+}
+.brand_bottom_main li .brand_arrow{
+	position: absolute;
+	color: #fff;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	font-family: normal;
+
+
+}
+.brand_div{
+	margin-left: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	letter-spacing: 1px;
+}
+
+/*嘉宾阵容*/
+.guest_team{
+	width: 100%;
+	height: 1060px;
+	background-image: url(/themes/sinohealth/assets/images/guest_bg.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.guest_main{
+	width: 1100px;
+	margin:50px auto 0;
+	position: relative;
+}
+.guest_team_img{
+	display: block;
+}
+.guest_swiper{
+	width: 1100px;
+	margin:37px auto 0;
+	position: relative;
+	height: 816px;
+	overflow: hidden;
+}
+.guest_main_swiper{
+	width: 1100px;
+	overflow: hidden;
+	height: 816px;
+
+}
+.guest-slide{
+	width: 1100px;
+	float: left;
+	height: 816px;
+}
+.guest-slide li{
+	float: left;
+	width: 275px;
+	height: 408px;
+}
+
+.guest_img{
+	height: 247px;
+	position: relative;
+	overflow: hidden;
+}
+.guest_img_insert{
+	max-height: 100%;
+}
+.sguest_abstracte{
+	background-color: #4ba2fb;
+	height: 161px;
+	overflow: hidden;
+}
+.guest-slide li:nth-child(even) .sguest_abstracte{
+	background-color: #0b6bca;
+}
+.sguest_abstracte h3{
+	font-size: 23px;
+	text-align: center;
+	margin-top: 22px;
+	color:#fff; 
+}
+.sguest_abstracte p{
+	font-size: 18px;
+	color: #fff;
+	margin-top: 5px;
+	text-align: center;
+}
+
+
+/*特别鸣谢*/
+.special_tk{
+	width: 100%;
+	height: 1035px;
+	background-image: url(/themes/sinohealth/assets/images/specialTk_bg.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.speech_main{
+	width: 1100px;
+	margin: 46px auto 0;
+}
+.speech_title_img{
+	display: block;
+}
+.special_tk .special_img{
+	width: 100%;
+	height: 678px;
+	margin-top:49px;
+	overflow: hidden;
+}
+
+/*历届西普*/
+.all_cepo{
+	width: 100%;
+	height: 561px;
+	background-image: url(/themes/sinohealth/assets/images/allCpeo_bg.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.allCepo_main{
+	width: 1100px;
+	margin: 81px auto 0;
+}
+.allCepo_main_swiper{
+	margin-top: 75px;
+	width: 1100px;
+	position: relative;
+	height: 204px;
+}
+.allCepo_container{
+	width: 1009px;
+	height: 204px;
+	overflow: hidden;
+	position: relative;
+	margin:0 auto;
+}
+.allCepo_container .allCepo_silder{
+	width: 1009px;
+	height: 204px;
+	float: left;
+}
+.allCepo_silder_insert{
+	width:329px;
+	margin-right: 11px;
+	float: left;
+	height: 204px;
+	position: relative;
+	overflow: hidden;
+}
+.allCepo_silder_insert img{
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	max-width: 100%;
+	transform: translate3d(-50%,-50%,0);
+}
+.allCepo_bg{
+	position: absolute;
+	z-index: 99;
+	background-color: rgba(0,0,0,.3);
+	width: 100%;
+	height: 100%;
+}
+.allCepo_years{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	z-index: 100;
+	height: 40px;
+	background-color: rgba(0,0,0,.4);
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+}
+.allCepo_silder_insert:last-child{
+	margin-right: 0;
+}
+.allCepo_left,.allCepo_right{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 23px;
+	height: 43px;
+	cursor: pointer;
+}
+.allCepo_left{
+	background-image: url(/themes/sinohealth/assets/images/allCeop_left.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	left: 0;
+}
+.allCepo_right{
+	background-image: url(/themes/sinohealth/assets/images/allCeop_right.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	right: 0;
+}
+
+.maskBg{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+	z-index: 10000;
+	top: 0;
+	left: 0;
+}
+.fixImg{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%,-50%,0);
+	display: block;
+	max-height: 100%;
+	max-width: 100%;
+	z-index: 10001;
+}
+/*手机号，编号，关键词，活动报名*/
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻列表</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="styles/ele.css">
+	<link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/news.css">
+</head>
+<style type="text/css">
+body{
+	margin: 0;
+    padding: 0;
+    background: #f0f7ff;
+    font-size: 16px;
+    min-width: 1200px;
+}
+
+
+</style>
+<body>
+<div id="news">
+	@@include('common/header.html')
+	<div class="app_page">
+		<div class="imgBanner"><img src="/themes/sinohealth/assets/images/pic_1.png" alt=""></div>
+		<div class="newsDetailTitle">
+			<p class="nn_div">[[ name ]]</p>
+			<div class="vv_div">[[ nameEnglish ]]</div>
+		</div>
+		<div class="newsArea" v-if="showNew">
+			<ul>
+				<li class="naItem" v-for="item in newsList">
+					<img v-bind:src="item.image" alt="">
+					<div class="nai_detail">
+						<p class="naid_title">
+							<a v-bind:href="urlTo(item.id,item.category_id)" class="naidt_h el1c">[[item.title]]</a>
+							<span class="naidt_d floatR">[[ item.created_at ]]</span>
+						</p>
+						<p class="el3c intro" style="min-height: 72px;">[[ item.description ]]</p>
+						<a v-bind:href="urlTo(item.id,item.category_id)" style="color: #34aaf1;" class="floatR">[阅读原文]</a>
+					</div>
+				</li>
+			</ul>
+			<el-pagination
+			  small
+			  layout="prev, pager, next,total"
+			  :total="totalPage" 
+			  @current-change="handleCurrentChange"
+			  :current-page="currentPage">
+			</el-pagination>
+		</div>
+
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/vue.js"></script>
+<script src="scripts/ele.js"></script>
+<script src="scripts/news.js"></script>
+</html>

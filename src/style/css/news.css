@@ -1,0 +1,241 @@
+
+@import 'common_head.css';
+/*新闻列表*/
+.app_page{
+	margin-top: 98px;
+}
+.floatR{
+	float: right;
+}
+.el1c{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.el3c{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+
+.imgBanner{
+	position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+.imgBanner img{
+	position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1920px;
+    left: 50%;
+    margin-left: -960px;
+}
+.newsArea{
+	width: 990px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.newsArea ul{
+    background: #FFF;
+    overflow: hidden;
+    /* width: 990px;
+    margin: 0 auto; */
+}
+.newsArea ul .naItem{
+	height: 148px;
+    width: 914px;
+    overflow: hidden;
+    margin: 0 36px;
+    position: relative;
+    padding: 38px 0;
+}
+.newsArea ul .naItem:after{
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background:#ccc;
+	height: 1px;
+	width: 100%;
+}
+.newsArea ul .naItem:last-child:after{
+	height: 0px;
+}
+.newsArea ul .naItem>img{
+	width: 182px;
+    height: 148px;
+    float: left;
+}
+.newsArea ul .naItem .nai_detail{
+	float: left;
+    width: 708px;
+    margin-left: 24px;
+}
+p.naid_title{
+	overflow: hidden;
+	color: #3c3c3c
+}
+p.intro{
+	color:#5c5c5c
+}
+.naid_title .naidt_h{
+	font-size: 24px;
+	max-width: 70%;
+    display: block;
+    float: left;
+}
+.naid_title .naidt_d {
+    color: #8c8c8c;
+}
+
+
+
+
+
+/*分页器*/
+.el-pagination{
+	margin: 52px auto 100px;
+    text-align: center;
+}
+.btn-prev,.btn-next{
+	width: 30px !important;
+	height: 30px !important;
+	line-height: 30px !important;
+	margin-right: 24px !important;
+
+}
+.btn-prev{
+
+}
+.el-pager li{
+	width: 30px !important;
+	height: 30px !important;
+	line-height: 30px !important;
+	margin-right: 24px !important;
+
+}
+.el-pager{
+	background-color: #f0f7ff !important;
+}
+
+/*新闻详情*/
+.newsDetailTitle{
+	width: 990px;
+	height: 117px;
+	overflow: hidden;
+	margin:0 auto;
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+.nn_div{
+	font-size: 28px;
+	color:#5c5c5c;
+	margin-top: 30px;
+}
+.vv_div{
+	font-size: 18px;
+	color:#5c5c5c;
+	
+}
+.newsDetail{
+	width: 990px;
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 37px 30px;
+	margin: 0 auto 100px;
+	overflow: hidden;
+
+}
+
+.newsDetail .newsDetail_title{
+	color: #3c3c3c;
+	font-size: 30px;
+}
+.newsDetail_time{
+	font-size: 16px;
+	color:#8c8c8c;
+	margin-top: 24px;
+}
+.newsDetail_div{
+	font-size: 18px;
+	color: #5c5c5c;
+	margin-top: 36px;
+}
+
+/*帮助中心*/
+.ulRouter{
+	width: 990px;
+	margin:30px auto 0;
+	height: 64px;
+}
+.ulRouter li{
+	float: left;
+	width: 200px;
+	height: 64px;
+	background-color:#ebedf0;
+	position: relative;
+	line-height: 64px;
+	margin-right: 12px;
+	cursor: pointer;
+}
+.ulRouter li.activeLi{
+	background-color: #2687f2;
+}
+.ulRouter li i{
+	position: absolute;
+	top: 50%;
+	left: 40px;
+	transform: translateY(-50%);
+	background-repeat: no-repeat;
+}
+.ulRouter .first{
+	background-image: url(/themes/sinohealth/assets/images/router.png);
+	width: 33px;
+	height: 35px;
+	background-size: contain;
+}
+.ulRouter .two{
+	background-image: url(/themes/sinohealth/assets/images/bus.png);
+	width: 32px;
+	height: 39px;
+	background-size: contain;
+}
+.ulRouter .three{
+	background-image: url(/themes/sinohealth/assets/images/wanted.png);
+	width: 36px;
+	height: 35px;
+	background-size: contain;
+}
+.ulRouter .four{
+	background-image: url(/themes/sinohealth/assets/images/help.png);
+	width: 38px;
+	height: 38px;
+	background-size: contain;
+}
+.ulRouter li span{
+	color: #5c5c5c;
+	font-size: 18px;
+	margin-left: 82px;
+}
+
+/*帮助中心*/
+.helpDetail{
+	background-color: #fff;
+	overflow: hidden;
+	padding: 37px 10px;
+	width: 990px;
+	margin: 0 auto;
+}
+.helpDetail_title{
+	text-align: center;
+	font-size: 30px;
+	color:#3c3c3c;
+}
+.helpDetail_div{
+	font-size: 18px;
+	color:#5c5c5c;
+	margin-top: 36px;
+}
